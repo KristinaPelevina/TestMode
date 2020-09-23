@@ -11,7 +11,7 @@ import static org.openqa.selenium.By.cssSelector;
 
 public class Tests {
     @Test
-    void shouldSubmitRequestIfUserIsCorrect() {
+    void shouldSubmitRequestIfUserIsValid() {
         Registration user = Generation.generateNewValidActiveUser();
         open("http://localhost:9999");
         SelenideElement form = $("[action]");
@@ -22,7 +22,7 @@ public class Tests {
     }
 
     @Test
-    void shouldNotSubmitRequestIfLoginIsIncorrect() {
+    void shouldNotSubmitRequestIfLoginIsInvalid() {
         Registration user = Generation.generateNewUserWithInvalidLogin();
         open("http://localhost:9999");
         SelenideElement form = $("[action]");
@@ -44,7 +44,7 @@ public class Tests {
     }
 
     @Test
-    void shouldNotSubmitRequestIfPasswordIsIncorrect() {
+    void shouldNotSubmitRequestIfPasswordIsInvalid() {
         Registration user = Generation.generateNewUserWithInvalidPassword();
         open("http://localhost:9999");
         SelenideElement form = $("[action]");
